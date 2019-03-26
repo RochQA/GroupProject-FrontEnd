@@ -13,7 +13,7 @@ class DisplayUser extends Component{
             <div className="userDisplay">
             <HashRouter>
                 <p>User: {this.props.user}</p>
-                <NavLink to="/login"><button type="button" onClick={this.props.handleLogout}>Log out</button></NavLink>
+                <NavLink to="/"><button type="button" onClick={this.props.handleLogout}>Log out</button></NavLink>
             </HashRouter>
             </div>
         );

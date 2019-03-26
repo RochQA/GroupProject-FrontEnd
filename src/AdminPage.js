@@ -18,7 +18,7 @@ class AdminPage extends Component{
         return(
             <div className="adminPage">
                 <DisplayUser user={this.props.user} handleLogout={this.props.handleLogout}/>
-                <HashRouter basename="/admin">
+                <HashRouter basename="/user/admin">
                 <ul className="topNavbar">
                     <li><NavLink to="/trainers">trainers</NavLink></li>
                     <li><NavLink to="/rooms">rooms</NavLink></li>

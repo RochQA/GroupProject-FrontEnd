@@ -3,6 +3,7 @@ import './App.css';
 import {
   Route,
   Link,
+  Redirect,
   NavLink,
   HashRouter
 } from "react-router-dom";
@@ -26,7 +27,6 @@ class App extends Component {
     this.setState({route:"login", user:""});
   }
   render() {
-    console.log(this.state.route);
     if(this.state.route==="login"){
       return(
           <div className="App">

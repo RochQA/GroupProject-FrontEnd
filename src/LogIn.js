@@ -31,7 +31,7 @@ class LogIn extends Component{
                     <input type="text" name="username" placeholder="a user" onChange={this.updateState}/><br/>
                     Password:
                     <input type="password" name="password" placeholder="a password" onChange={this.updateState}/><br/>
-                    <input type="submit" value="Log in"/>
+                    <button type="button" value="Log in" onClick={this.handleLogin}><NavLink to="/user" className="loginNav">Log in</NavLink></button>
                 </form>
             </HashRouter>
             </div>

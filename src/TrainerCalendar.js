@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import Calendar from 'react-calendar';
 
 class TrainerCalendar extends Component{
     render(){
         return(
-            <h2>There might be a calendar here someday</h2>
+            <div className="calendarPage">
+                <Calendar/>
+            </div>
         );
     }
 }

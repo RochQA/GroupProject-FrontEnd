@@ -8,7 +8,7 @@ class AddTrainer extends Component{
     }
     handleSubmit =(e)=>{
         e.preventDefault();
-        let oldEmail = this.state.trainerEmail;
+        let oldEmail = this.state.email;
         this.setState({message: `New user created, email sent to ${oldEmail}`});
     }
     updateState =(e)=>{
@@ -21,9 +21,9 @@ class AddTrainer extends Component{
             <div className="addTrainer">
             <form onSubmit={this.handleSubmit}>
                 Trainer name:
-                <input type="text" name="trainerName" placeholder="Bob Bobson" onChange={this.updateState}/><br/>
+                <input type="text" name="name" placeholder="Bob Bobson" onChange={this.updateState}/><br/>
                 Trainer email:
-                <input type="email" name="trainerEmail" placeholder="bob@gmail.com" onChange={this.updateState}/><br/>
+                <input type="email" name="email" placeholder="bob@gmail.com" onChange={this.updateState}/><br/>
                 Password:
                 <input type="password" name="password" placeholder="password1" onChange={this.updateState}/><br/>
                 <input type="submit" value="Add this trainer"/>

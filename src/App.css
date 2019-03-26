@@ -26,3 +26,8 @@
 .topNavbar li a:hover{
   background-color: gray;
 }
+.calendarPage{
+  position: fixed;
+  left: 35%;
+  top: 20%;
+}

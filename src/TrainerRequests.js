@@ -1,0 +1,36 @@
+import React, { Component } from 'react';
+import './App.css';
+import {
+    Route,
+    Link,
+    NavLink,
+    HashRouter
+  } from "react-router-dom";
+
+class TrainerRequests extends Component{
+    constructor(props){
+        super(props);
+        this.state = {message: ""};
+    }
+    sendRequest = (e)=>{
+        e.preventDefault();
+        this.setState({message: "Your request has been sent to an admin"});
+    }
+    updateState =(e)=>{
+        const value = e.target.value;
+        const name = e.target.name;
+        this.setState({[name]: value, message: ""});
+    }
+    render(){
+        return(
+            <div className="Requests">
+                <form className="sendRequests" onSubmit={this.sendRequest}>
+                    Request: <input type="text" name="requestBody" placeholder="Can I ..." onChange={this.handleChange}/>
+                    <input type="submit" value="Send request"/>
+                </form>
+                <p>{this.state.message}</p>
+            </div>
+        );
+    }
+}
+export default TrainerRequests;

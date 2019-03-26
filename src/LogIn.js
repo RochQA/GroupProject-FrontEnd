@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+    Redirect,
+    Route,
+    Link,
+    NavLink,
+    HashRouter
+  } from "react-router-dom";
 import './App.css';
 
 class LogIn extends Component{
@@ -18,6 +25,7 @@ class LogIn extends Component{
     render(){
         return(
             <div className="LogIn">
+            <HashRouter>
                 <form onSubmit={this.handleLogin}>
                     Username:
                     <input type="text" name="username" placeholder="a user" onChange={this.updateState}/><br/>
@@ -25,6 +33,7 @@ class LogIn extends Component{
                     <input type="password" name="password" placeholder="a password" onChange={this.updateState}/><br/>
                     <input type="submit" value="Log in"/>
                 </form>
+            </HashRouter>
             </div>
         );
     }

@@ -13,28 +13,28 @@ import AdminPage from './AdminPage';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {route:"/login", user:""};
+    this.state = {route:"login", user:""};
   }
   handleLogin = (username) =>{
       if(username==="admin"){
-        this.setState({route:"/admin", user:username});
+        this.setState({route:"admin", user:username});
       }else{
-        this.setState({route:"/trainer", user:username});
+        this.setState({route:"trainer", user:username});
       }
   }
   handleLogout = () =>{
-    this.setState({route:"/login", user:""});
+    this.setState({route:"login", user:""});
   }
   render() {
     console.log(this.state.route);
-    if(this.state.route==="/login"){
+    if(this.state.route==="login"){
       return(
           <div className="App">
             <h1>Trainer App</h1>
             <LogIn handleLogin={this.handleLogin}/>
           </div>
       );
-    }else if(this.state.route==="/admin"){
+    }else if(this.state.route==="admin"){
       return(
         <div className="App">
           <h1>Trainer App</h1>

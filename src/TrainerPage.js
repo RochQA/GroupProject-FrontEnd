@@ -6,7 +6,10 @@ import {
     NavLink,
     HashRouter
   } from "react-router-dom";
+import AccountSetting from './AccountSetting'
 import DisplayUser from './DisplayUser';
+import TrainerRequests from './TrainerRequests';
+import TrainerCalendar from './TrainerCalendar';
 
 class TrainerPage extends Component{
     render(){
@@ -15,10 +18,16 @@ class TrainerPage extends Component{
                 <DisplayUser user={this.props.user} handleLogout={this.props.handleLogout}/>
                 <HashRouter basename="/trainer">
                 <ul className="topNavbar">
-                    <li><a><NavLink to="/calendar">calendar</NavLink></a></li>
-                    <li><a><NavLink to="/requests">requests</NavLink></a></li>
-                    <li><a><NavLink to="/settings">settings</NavLink></a></li>
+                    <li><NavLink to="/calendar"><a>calendar</a></NavLink></li>
+                    <li><NavLink to="/requests"><a>requests</a></NavLink></li>
+                    <li><NavLink to="/settings"><a>settings</a></NavLink></li>
                 </ul>
+                <div className="content">
+                    <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
+                    <Route path="/settings" render={()=><AccountSetting/>}/>
+                    <Route path="/requests" render={()=><TrainerRequests/>}/>
+                    <Route path="/calendar" render={()=><TrainerCalendar/>}/>
+                </div>
                 </HashRouter>
             </div>
         );

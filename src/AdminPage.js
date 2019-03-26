@@ -9,6 +9,9 @@ import {
 import DisplayUser from './DisplayUser';
 import AccountSetting from './AccountSetting'
 import RoomsPage from './RoomsPage';
+import DisplayTrainers from './DisplayTrainers';
+import AdminRequests from './AdminRequests';
+import AddTrainer from './AddTrainer';
 
 class AdminPage extends Component{
     render(){
@@ -26,6 +29,9 @@ class AdminPage extends Component{
                 <div className="content">
                     <Route path="/settings" render={()=><AccountSetting/>}/>
                     <Route path="/rooms" render={()=><RoomsPage/>}/>
+                    <Route path="/trainers" render={()=><DisplayTrainers/>}/>
+                    <Route path="/requests" render={()=><AdminRequests/>}/>
+                    <Route path="/addtrainer" render={()=><AddTrainer/>}/>
                 </div>
                 </HashRouter>
             </div>

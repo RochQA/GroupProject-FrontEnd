@@ -27,6 +27,7 @@ class AdminPage extends Component{
                     <li><NavLink to="/settings">settings</NavLink></li>
                 </ul>
                 <div className="content">
+                    <Route exact path="/user" render={()=><h2>Welcome to the app</h2>}/>
                     <Route path="/settings" render={()=><AccountSetting/>}/>
                     <Route path="/rooms" render={()=><RoomsPage/>}/>
                     <Route path="/trainers" render={()=><DisplayTrainers/>}/>

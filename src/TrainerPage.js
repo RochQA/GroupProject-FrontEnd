@@ -23,7 +23,7 @@ class TrainerPage extends Component{
                     <li><NavLink to="/settings"><a>settings</a></NavLink></li>
                 </ul>
                 <div className="content">
-                    <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
+                    <Route exact path="/user" render={()=><h2>Welcome to the app</h2>}/>
                     <Route path="/settings" render={()=><AccountSetting/>}/>
                     <Route path="/requests" render={()=><TrainerRequests/>}/>
                     <Route path="/calendar" render={()=><TrainerCalendar/>}/>

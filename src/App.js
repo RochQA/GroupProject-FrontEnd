@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './App.css';
 import {
   Route,
+  Link,
   NavLink,
   HashRouter
 } from "react-router-dom";
-import './App.css';
 import LogIn from './LogIn';
 import TrainerPage from './TrainerPage';
 import AdminPage from './AdminPage';
@@ -12,37 +13,40 @@ import AdminPage from './AdminPage';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {loggedIn:false, user:""};
+    this.state = {route:"/login", user:""};
   }
   handleLogin = (username) =>{
-      this.setState({loggedIn:true, user:username, });
+      if(username==="admin"){
+        this.setState({route:"/admin", user:username});
+      }else{
+        this.setState({route:"/trainer", user:username});
+      }
   }
   handleLogout = () =>{
-    this.setState({loggedIn:false});
+    this.setState({route:"/login", user:""});
   }
   render() {
-    if(this.state.loggedIn===true){
-      if(this.state.user==="admin"){
-        return(
+    console.log(this.state.route);
+    if(this.state.route==="/login"){
+      return(
           <div className="App">
-          <h1>Trainer Manager</h1> 
-            <AdminPage user={this.state.user} handleLogout={this.handleLogout}/>
+            <h1>Trainer App</h1>
+            <LogIn handleLogin={this.handleLogin}/>
           </div>
-        );
-      }else{
-        return (
-          <div className="App">
-          <h1>Trainer Manager</h1> 
-            <TrainerPage user={this.state.user} handleLogout={this.handleLogout}/>
-          </div>
-          );
-      }
+      );
+    }else if(this.state.route==="/admin"){
+      return(
+        <div className="App">
+          <h1>Trainer App</h1>
+          <AdminPage handleLogout={this.handleLogout} user={this.state.user}/>
+        </div>
+      );
     }else{
       return(
-      <div className="App">
-          <h1>Trainer Manager</h1> 
-          <LogIn handleLogin={this.handleLogin}/>
-      </div>
+        <div className="App">
+          <h1>Trainer App</h1>
+          <TrainerPage handleLogout={this.handleLogout} user={this.state.user}/>
+        </div>
       );
     }
   }

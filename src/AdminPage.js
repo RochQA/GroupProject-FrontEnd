@@ -7,6 +7,8 @@ import {
     HashRouter
   } from "react-router-dom";
 import DisplayUser from './DisplayUser';
+import AccountSetting from './AccountSetting'
+import RoomsPage from './RoomsPage';
 
 class AdminPage extends Component{
     render(){
@@ -21,6 +23,10 @@ class AdminPage extends Component{
                     <li><NavLink to="/addtrainer">add trainer</NavLink></li>
                     <li><NavLink to="/settings">settings</NavLink></li>
                 </ul>
+                <div className="content">
+                    <Route path="/settings" render={()=><AccountSetting/>}/>
+                    <Route path="/rooms" render={()=><RoomsPage/>}/>
+                </div>
                 </HashRouter>
             </div>
         );

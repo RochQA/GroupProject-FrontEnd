@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-    Route,
-    Link,
-    NavLink,
-    HashRouter
-  } from "react-router-dom";
 
 class TrainerRequests extends Component{
     constructor(props){
@@ -25,7 +19,7 @@ class TrainerRequests extends Component{
         return(
             <div className="Requests">
                 <form className="sendRequests" onSubmit={this.sendRequest}>
-                    Request: <input type="text" name="requestBody" placeholder="Can I ..." onChange={this.handleChange}/>
+                    Request: <input type="text" name="requestText" placeholder="Can I ..." onChange={this.handleChange}/>
                     <input type="submit" value="Send request"/>
                 </form>
                 <p>{this.state.message}</p>

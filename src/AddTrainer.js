@@ -4,19 +4,23 @@ import './App.css';
 class AddTrainer extends Component{
     constructor(props){
         super(props);
-        this.state = {message:""};
+        this.state = {message:"", formDisplay:true};
     }
     handleSubmit =(e)=>{
         e.preventDefault();
         let oldEmail = this.state.email;
-        this.setState({message: `New user created, email sent to ${oldEmail}`});
+        this.setState({message: `New user created, email sent to ${oldEmail}`, formDisplay:false});
     }
     updateState =(e)=>{
         const value = e.target.value;
         const name = e.target.name;
-        this.setState({[name]: value, message: ""});
+        this.setState({[name]: value, message: "", formDisplay:true});
+    }
+    dispForm=()=>{
+        this.setState({message:"", formDisplay:true})
     }
     render(){
+        if(this.state.formDisplay===true){
         return(
             <div className="addTrainer">
             <form onSubmit={this.handleSubmit}>
@@ -31,6 +35,15 @@ class AddTrainer extends Component{
             <p>{this.state.message}</p>
             </div>
         );
+        }else{
+            return(
+                <div className="addTrainer">
+        
+                <p>{this.state.message}</p>
+                <button type="button" onClick={this.dispForm}>Add new trainer</button>
+            </div>
+            );
+        }
     }
 }
 export default AddTrainer;

@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-    Route,
-    Link,
-    NavLink,
-    HashRouter
-  } from "react-router-dom";
 
   class AccountSettings extends Component{
     constructor(props){
@@ -32,10 +26,10 @@ import {
             <div className="passwordSet">
                 <form onSubmit={this.setPassword}>
                     New password:
-                    <input type="password" name="password" placeholder="a password" onChange={this.updateState}/><br/>
+                    <input type="password" name="password" placeholder="a password" id="pwordbox1-change" onChange={this.updateState}/><br/>
                     Re-enter new password:
-                    <input type="password" name="password2" placeholder="a password" onChange={this.updateState}/><br/>
-                    <input type="submit" value="Change password"/>
+                    <input type="password" name="password2" placeholder="a password" id="pwordbox2-change" onChange={this.updateState}/><br/>
+                    <input type="submit" id="acc-update-button" value="Change password"/>
                 </form>
                 <p>{this.state.message}</p>
             </div>

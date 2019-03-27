@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import {
     Route,
-    Link,
     NavLink,
     HashRouter
   } from "react-router-dom";
@@ -18,16 +17,16 @@ class AdminPage extends Component{
         return(
             <div className="adminPage">
                 <DisplayUser user={this.props.user} handleLogout={this.props.handleLogout}/>
-                <HashRouter basename="/user/admin">
+                <HashRouter basename="/user">
                 <ul className="topNavbar">
-                    <li><NavLink to="/trainers">trainers</NavLink></li>
-                    <li><NavLink to="/rooms">rooms</NavLink></li>
-                    <li><NavLink to="/requests">requests</NavLink></li>
-                    <li><NavLink to="/addtrainer">add trainer</NavLink></li>
-                    <li><NavLink to="/settings">settings</NavLink></li>
+                    <li id="trainers-nav"><NavLink to="/trainers">trainers</NavLink></li>
+                    <li id="rooms-nav"><NavLink to="/rooms">rooms</NavLink></li>
+                    <li id="requests-nav"><NavLink to="/requests">requests</NavLink></li>
+                    <li id="add-trainer-nav"><NavLink to="/addtrainer">add trainer</NavLink></li>
+                    <li id="settings-nav"><NavLink to="/settings">settings</NavLink></li>
                 </ul>
                 <div className="content">
-                    <Route exact path="/user" render={()=><h2>Welcome to the app</h2>}/>
+                    <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
                     <Route path="/settings" render={()=><AccountSetting/>}/>
                     <Route path="/rooms" render={()=><RoomsPage/>}/>
                     <Route path="/trainers" render={()=><DisplayTrainers/>}/>

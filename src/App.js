@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-  Route,
-  Link,
-  Redirect,
-  NavLink,
-  HashRouter
-} from "react-router-dom";
 import LogIn from './LogIn';
 import TrainerPage from './TrainerPage';
 import AdminPage from './AdminPage';

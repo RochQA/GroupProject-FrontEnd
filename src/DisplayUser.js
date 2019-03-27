@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-    Route,
-    Link,
     NavLink,
     HashRouter
   } from "react-router-dom";
@@ -12,8 +10,8 @@ class DisplayUser extends Component{
         return(
             <div className="userDisplay">
             <HashRouter>
-                <p>User: {this.props.user}</p>
-                <NavLink to="/"><button type="button" onClick={this.props.handleLogout}>Log out</button></NavLink>
+                <p id="username-display">User: {this.props.user}</p>
+                <NavLink to="/"><button type="button" id="logout-button" onClick={this.props.handleLogout}>Log out</button></NavLink>
             </HashRouter>
             </div>
         );

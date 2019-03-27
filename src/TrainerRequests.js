@@ -19,8 +19,8 @@ class TrainerRequests extends Component{
         return(
             <div className="Requests">
                 <form className="sendRequests" onSubmit={this.sendRequest}>
-                    Request: <input type="text" name="requestText" placeholder="Can I ..." onChange={this.handleChange}/>
-                    <input type="submit" value="Send request"/>
+                    Request: <input type="text" name="requestText" placeholder="Can I ..." id="request-text-box" onChange={this.handleChange}/>
+                    <input type="submit" id="send-request-button" value="Send request"/>
                 </form>
                 <p>{this.state.message}</p>
             </div>

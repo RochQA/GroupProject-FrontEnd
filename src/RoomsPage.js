@@ -14,8 +14,8 @@ class RoomsPage extends Component{
         return(
             <div className="roomsPage">
                 <form>
-                    <input type="radio" value="available" checked={this.state.roomType==="available"} onChange={this.handleChange}/>Available rooms
-                    <input type="radio" value="unavailable" checked={this.state.roomType==="unavailable"} onChange={this.handleChange}/>Rooms in use
+                    <input type="radio" value="available" checked={this.state.roomType==="available"} id="available-check" onChange={this.handleChange}/>Available rooms
+                    <input type="radio" value="unavailable" checked={this.state.roomType==="unavailable"} id="unavailable-check" onChange={this.handleChange}/>Rooms in use
                 </form>
                 <p>{this.state.message}</p>
             </div>

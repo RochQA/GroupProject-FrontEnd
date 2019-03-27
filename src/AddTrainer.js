@@ -21,12 +21,12 @@ class AddTrainer extends Component{
             <div className="addTrainer">
             <form onSubmit={this.handleSubmit}>
                 Trainer name:
-                <input type="text" name="name" placeholder="Bob Bobson" onChange={this.updateState}/><br/>
+                <input type="text" name="name" placeholder="Bob Bobson" id="namebox-addtrainer" onChange={this.updateState}/><br/>
                 Trainer email:
-                <input type="email" name="email" placeholder="bob@gmail.com" onChange={this.updateState}/><br/>
+                <input type="email" name="email" placeholder="bob@gmail.com" id="emailbox-addtrainer" onChange={this.updateState}/><br/>
                 Password:
-                <input type="password" name="password" placeholder="password1" onChange={this.updateState}/><br/>
-                <input type="submit" value="Add this trainer"/>
+                <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/><br/>
+                <input type="submit" id="submit-button-addtrainer" value="Add this trainer"/>
             </form>
             <p>{this.state.message}</p>
             </div>

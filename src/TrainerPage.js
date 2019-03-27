@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './TrainerPage.css'
 import {
     Route,
     NavLink,

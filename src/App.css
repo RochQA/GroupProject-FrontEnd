@@ -26,12 +26,3 @@
 .topNavbar li a:hover{
   background-color: gray;
 }
-.calendarPage{
-  position: fixed;
-  left: 35%;
-  top: 20%;
-}
-.loginNav{
-  text-decoration: none;
-  color:black;
-}

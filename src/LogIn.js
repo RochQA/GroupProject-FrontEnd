@@ -4,6 +4,7 @@ import {
     HashRouter
   } from "react-router-dom";
 import './App.css';
+import './LogInPage.css';
 
 class LogIn extends Component{
     constructor(props){

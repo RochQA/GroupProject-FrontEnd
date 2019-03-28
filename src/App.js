@@ -3,21 +3,33 @@ import './App.css';
 import LogIn from './LogIn';
 import TrainerPage from './TrainerPage';
 import AdminPage from './AdminPage';
+import Axios from 'axios';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {route:"login", user:""};
   }
-  handleLogin = (username) =>{
+  handleLogin = (username, password1) =>{
       if(username==="admin"){
         this.setState({route:"admin", user:username});
-      }else{
-        this.setState({route:"trainer", user:username});
       }
+      let body = { email:username, password: password1};
+      let url = "http://localhost:8080/login";
+      let self = this;
+      Axios.put(url, body).then(function(response){
+          console.log(response);
+          if(username===response.data.email){
+            self.setState({route: "trainer", user: response.data.email});
+          }else{
+            self.setState({route:"login", user: "Login Error"});
+          }
+      }).catch(function(error){
+          console.log(error);
+      });
   }
   handleLogout = () =>{
-    this.setState({route:"login", user:""});
+    this.setState({route:"login", user:"", message:""});
   }
   render() {
     if(this.state.route==="login"){
@@ -25,6 +37,7 @@ class App extends Component {
           <div className="App">
             <h1>Trainer App</h1>
             <LogIn handleLogin={this.handleLogin}/>
+            <p>{this.state.user}</p>
           </div>
       );
     }else if(this.state.route==="admin"){

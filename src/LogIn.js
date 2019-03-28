@@ -13,7 +13,7 @@ class LogIn extends Component{
     }
     handleLogin =(e)=>{
         e.preventDefault();
-        this.props.handleLogin(this.state.username);
+        this.props.handleLogin(this.state.username, this.state.password);
     }
     updateState =(e)=>{
         const value = e.target.value;

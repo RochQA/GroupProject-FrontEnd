@@ -36,7 +36,7 @@ class App extends Component {
     if(this.state.route==="login"){
       return(
           <div className="App">
-            <h1>Trainer App</h1>
+            <h1>TRAINER APP</h1>
             <LogIn handleLogin={this.handleLogin}/>
             <p>{this.state.user}</p>
           </div>
@@ -44,14 +44,14 @@ class App extends Component {
     }else if(this.state.route==="admin"){
       return(
         <div className="App">
-          <h1>Trainer App</h1>
+          <h1>TRAINER APP</h1>
           <AdminPage handleLogout={this.handleLogout} user={this.state.user}/>
         </div>
       );
     }else{
       return(
         <div className="App">
-          <h1>Trainer App</h1>
+          <h1>TRAINER APP</h1>
           <TrainerPage handleLogout={this.handleLogout} user={this.state.user}/>
         </div>
       );

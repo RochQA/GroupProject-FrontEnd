@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 .userDisplay{
   position: fixed;
@@ -10,7 +11,8 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: #2A9AE8;
+  opacity: 150;
   overflow: hidden;
 }
 .topNavbar li{
@@ -22,10 +24,13 @@
   text-align: center;
   text-decoration: none;
   color: white;
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
+  font-weight: bolder;
 }
 .topNavbar li a:hover{
-  background-color: gray;
+  background-color: rgba(75,75,144, 0.5);
 }
 .topNavbar .active{
-  background-color: blue;
+  background-color:#003C70;
 }

@@ -8,13 +8,14 @@ class TrainerCalendar extends Component{
         this.state = {};
     }
     handleChange = (date) =>{
+        console.log(date);
         this.setState({date: date.toString()});
     }
     render(){
         return(
             <div className="calendarPage">
                 <Calendar onChange={this.handleChange}/>
-                <p>{this.state.date}</p>
+                <p>Plan for: {this.state.date}</p>
             </div>
         );
     }

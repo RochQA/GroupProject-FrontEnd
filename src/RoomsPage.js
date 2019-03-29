@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
+import Calendar from 'react-calendar';
 
 class RoomsPage extends Component{
     constructor(props){
         super(props);
-        this.state = {roomType:"available"};
+        this.state ={mesage:""};
     }
-    handleChange=(e)=>{
-        this.setState({roomType: e.target.value, message: `Displaying ${e.target.value} rooms`});
+    handleChange = (date) =>{
+        this.setState({message: `The day is ${date.getDay()} the month is ${date.getMonth()}, the year is ${date.getYear()}`});
     }
     render(){
-        console.log(this.state.roomType)
         return(
             <div className="roomsPage">
-                <form>
-                    <input type="radio" value="available" checked={this.state.roomType==="available"} id="available-check" onChange={this.handleChange}/>Available rooms
-                    <input type="radio" value="unavailable" checked={this.state.roomType==="unavailable"} id="unavailable-check" onChange={this.handleChange}/>Rooms in use
-                </form>
+                <Calendar onClickDay={this.handleChange} />
                 <p>{this.state.message}</p>
             </div>
         );

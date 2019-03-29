@@ -38,15 +38,20 @@ class AddTrainer extends Component{
         if(this.state.formDisplay===true){
         return(
             <div className="addTrainer">
+            <br/>
             <form onSubmit={this.handleSubmit}>
-                Trainer name:
+                <p className="form-font">Trainer name: </p>
                 <input type="text" name="name" placeholder="Bob Bobson" id="namebox-addtrainer" onChange={this.updateState}/><br/>
-                Trainer email:
+                <br/>
+                <p className="form-font">Trainer email: </p>
                 <input type="email" name="email" placeholder="bob@gmail.com" id="emailbox-addtrainer" onChange={this.updateState} /><br/>
-                Password:
+                <br/>
+                <p className="form-font">Password: </p>
                 <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/><br/>
-                Re-type Password:
+                <br/>
+                <p className="form-font">Re-type Password: </p>
                 <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress}/><br/>
+                <br/>
                 <input type="submit" id="submit-button-addtrainer" value="Add this trainer"/>
             </form>
             <p>{this.state.message}</p>

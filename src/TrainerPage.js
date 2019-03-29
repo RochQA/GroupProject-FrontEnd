@@ -6,7 +6,7 @@ import {
     NavLink,
     HashRouter
   } from "react-router-dom";
-import AccountSetting from './AccountSetting'
+import AccountSettings from './AccountSettings'
 import DisplayUser from './DisplayUser';
 import TrainerRequests from './TrainerRequests';
 import TrainerCalendar from './TrainerCalendar';
@@ -24,7 +24,7 @@ class TrainerPage extends Component{
                 </ul>
                 <div className="content">
                     <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
-                    <Route path="/settings" render={()=><AccountSetting/>}/>
+                    <Route path="/settings" render={()=><AccountSettings/>}/>
                     <Route path="/requests" render={()=><TrainerRequests/>}/>
                     <Route path="/calendar" render={()=><TrainerCalendar/>}/>
                 </div>

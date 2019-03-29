@@ -6,7 +6,7 @@ import {
     HashRouter
   } from "react-router-dom";
 import DisplayUser from './DisplayUser';
-import AccountSetting from './AccountSetting'
+import AccountSettings from './AccountSettings'
 import RoomsPage from './RoomsPage';
 import DisplayTrainers from './DisplayTrainers';
 import AdminRequests from './AdminRequests';
@@ -27,7 +27,7 @@ class AdminPage extends Component{
                 </ul>
                 <div className="content">
                     <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
-                    <Route path="/settings" render={()=><AccountSetting/>}/>
+                    <Route path="/settings" render={()=><AccountSettings/>}/>
                     <Route path="/rooms" render={()=><RoomsPage/>}/>
                     <Route path="/trainers" render={()=><DisplayTrainers/>}/>
                     <Route path="/requests" render={()=><AdminRequests/>}/>

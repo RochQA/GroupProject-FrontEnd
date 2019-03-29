@@ -10,6 +10,12 @@ class TrainerRequests extends Component{
         e.preventDefault();
         this.setState({message: "Your request has been sent to an admin"});
     }
+    enterPress =(e)=>{
+        var code = e.keyCode || e.which;
+        if(code===13){
+            this.sendRequest(e);
+        }
+    }
     updateState =(e)=>{
         const value = e.target.value;
         const name = e.target.name;
@@ -19,7 +25,7 @@ class TrainerRequests extends Component{
         return(
             <div className="Requests">
                 <form className="sendRequests" onSubmit={this.sendRequest}>
-                    Request: <input type="text" name="requestText" placeholder="Can I ..." id="request-text-box" onChange={this.handleChange}/>
+                    Request: <input type="text" name="requestText" placeholder="Can I ..." id="request-text-box" onChange={this.handleChange} onKeyPress={this.enterPress}/>
                     <input type="submit" id="send-request-button" value="Send request"/>
                 </form>
                 <p>{this.state.message}</p>

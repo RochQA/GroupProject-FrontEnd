@@ -20,6 +20,12 @@ class AddTrainer extends Component{
                 self.setState({message: "temp3", formDisplay:false});
             });
     }
+    enterPress =(e)=>{
+        var code = e.keyCode || e.which;
+        if(code===13){
+            this.handleSubmit(e);
+        }
+    }
     updateState =(e)=>{
         const value = e.target.value;
         const name = e.target.name;
@@ -36,11 +42,11 @@ class AddTrainer extends Component{
                 Trainer name:
                 <input type="text" name="name" placeholder="Bob Bobson" id="namebox-addtrainer" onChange={this.updateState}/><br/>
                 Trainer email:
-                <input type="email" name="email" placeholder="bob@gmail.com" id="emailbox-addtrainer" onChange={this.updateState}/><br/>
+                <input type="email" name="email" placeholder="bob@gmail.com" id="emailbox-addtrainer" onChange={this.updateState} /><br/>
                 Password:
                 <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/><br/>
                 Re-type Password:
-                <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState}/><br/>
+                <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress}/><br/>
                 <input type="submit" id="submit-button-addtrainer" value="Add this trainer"/>
             </form>
             <p>{this.state.message}</p>

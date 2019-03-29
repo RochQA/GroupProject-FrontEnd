@@ -9,11 +9,17 @@ import './LogInPage.css';
 class LogIn extends Component{
     constructor(props){
         super(props);
-        this.state = {username:"" ,password: ""};
+        this.state = {email:"" ,password: ""};
     }
     handleLogin =(e)=>{
         e.preventDefault();
-        this.props.handleLogin(this.state.username, this.state.password);
+        this.props.handleLogin(this.state.email, this.state.password);
+    }
+    enterPress =(e)=>{
+        var code = e.keyCode || e.which;
+        if(code===13){
+            this.handleLogin(e);
+        }
     }
     updateState =(e)=>{
         const value = e.target.value;
@@ -25,10 +31,10 @@ class LogIn extends Component{
             <div className="LogIn">
             <HashRouter>
                 <form onSubmit={this.handleLogin}>
-                    Username:
-                    <input type="text" name="username" placeholder="a user" id="userbox-login" onChange={this.updateState}/><br/>
+                    Email address:
+                    <input type="text" name="email" placeholder="person@email.com" id="emailbox-login" onChange={this.updateState} onKeyPress={this.enterPress}/><br/>
                     Password:
-                    <input type="password" name="password" placeholder="a password" id="pwordBox-login" onChange={this.updateState}/><br/>
+                    <input type="password" name="password" placeholder="a password" id="pwordBox-login" onChange={this.updateState} onKeyPress={this.enterPress}/><br/>
                     <button type="button" value="Log in" id="login-button" onClick={this.handleLogin}><NavLink to="/user" className="loginNav">Log in</NavLink></button>
                 </form>
             </HashRouter>

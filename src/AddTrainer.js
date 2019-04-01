@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 class AddTrainer extends Component{
     constructor(props){
@@ -9,16 +10,20 @@ class AddTrainer extends Component{
     }
     handleSubmit =(e)=>{
         e.preventDefault();
-        let body = { email:this.state.email, password:this.state.password, confirmPassword: this.state.password2, trainerName: this.state.name };
-        let url = "http://localhost:8080/createAccount";
-            var self = this;
-            Axios.post(url, body).then(function(response){
+        let body = { trainerFirstName:this.state.trainerFirstName, trainerLastName: this.state.trainerLastName,
+             confirmPassword:this.state.password, password:this.state.password2, email:this.state.email};
+        var self = this;
+        if(this.state.password===this.state.password2){
+            Axios.post(constants.CREATE_ACCOUNT_URL, body).then(function(response){
                 console.log(response);
                 self.setState({message: response.data, formDisplay:false});
             }).catch(function(error){
                 console.log(error);
                 self.setState({message: "temp3", formDisplay:false});
             });
+        }else{
+            this.setState({message:"Passwords don't match"})
+        }
     }
     enterPress =(e)=>{
         var code = e.keyCode || e.which;
@@ -40,17 +45,19 @@ class AddTrainer extends Component{
             <div className="addTrainer">
             <br/>
             <form onSubmit={this.handleSubmit}>
-                <p className="form-font">Trainer name: </p>
-                <input type="text" name="name" placeholder="Bob Bobson" id="namebox-addtrainer" onChange={this.updateState}/><br/>
+                <p className="form-font">First name: </p>
+                <input type="text" name="trainerFirstName" placeholder="First name" id="firstnamebox-addtrainer" onChange={this.updateState}/>
                 <br/>
-                <p className="form-font">Trainer email: </p>
-                <input type="email" name="email" placeholder="bob@gmail.com" id="emailbox-addtrainer" onChange={this.updateState} /><br/>
+                <p className="form-font">Last name: </p>
+                <input type="text" name="trainerLastName" placeholder="Last name" id="lastnamebox-addtrainer" onChange={this.updateState} />
                 <br/>
+                <p className="form-font">Email:</p>
+                <input type="email" name="email" placeholder="Email" id="emailbox-addtrainer" onChange={this.updateState} />
                 <p className="form-font">Password: </p>
-                <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/><br/>
+                <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/>
                 <br/>
                 <p className="form-font">Re-type Password: </p>
-                <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress}/><br/>
+                <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress}/>
                 <br/>
                 <input type="submit" id="submit-button-addtrainer" value="Add this trainer"/>
             </form>

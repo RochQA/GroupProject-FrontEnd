@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 class DisplayTrainers extends Component{
     constructor(props){
         super(props);
-        var url="http://localhost:8080/getAllAccounts"
         var self = this;
-        Axios.get(url).then(function(response){
+        Axios.get(constants.GET_ALL_ACCOUNTS).then(function(response){
             console.log(response);
             self.setState({trainers:response.data});
         }).catch(function(error){

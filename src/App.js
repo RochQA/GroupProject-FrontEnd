@@ -4,6 +4,7 @@ import LogIn from './LogIn';
 import TrainerPage from './TrainerPage';
 import AdminPage from './AdminPage';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 class App extends Component {
   constructor(props){
@@ -11,13 +12,12 @@ class App extends Component {
     this.state = {route:"login", user:""};
   }
   handleLogin = (username, password1) =>{
-    if(username==="admin"){
+    if(username==="admin" && password1==="admin"){
       this.setState({route:"admin", user:username});
     }else{
       let body = { email:username, password: password1};
-      let url = "http://localhost:8080/login";
       let self = this;
-      Axios.put(url, body).then(function(response){
+      Axios.put(constants.LOGIN_URL, body).then(function(response){
           console.log(response);
           if(username===response.data.email){
             self.setState({route: "trainer", user: response.data.email});

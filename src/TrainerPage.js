@@ -22,7 +22,7 @@ class TrainerPage extends Component{
                 </ul>
                 <div className="content">
                     <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
-                    <Route path="/settings" render={()=><AccountSettings/>}/>
+                    <Route path="/settings" render={()=><AccountSettings user={this.props.user}/>}/>
                     <Route path="/calendar" render={()=><TrainerCalendar/>}/>
                 </div>
                 </HashRouter>

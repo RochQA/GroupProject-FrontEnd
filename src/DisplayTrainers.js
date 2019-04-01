@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
 import * as constants from './Constants.js';
+import DisplayTrainerFunctions from './DisplayTrainerFunctions';
 
 class DisplayTrainers extends Component{
     constructor(props){
@@ -14,7 +15,6 @@ class DisplayTrainers extends Component{
             self.setState({trainers: "error"});
         });
     }
-
     render(){
         try{
         return(
@@ -22,6 +22,8 @@ class DisplayTrainers extends Component{
                 {this.state.trainers.map(item =>(
                     <ul className="displayIndividualTrainer">
                         <p>Email: {item.email}</p>
+                        <p>Name: {item.firstName} {item.lastName}</p>
+                        <DisplayTrainerFunctions id={item.id}/>
                     </ul>
                 ))}
             </div>

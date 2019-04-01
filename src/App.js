@@ -9,7 +9,7 @@ import * as constants from './Constants.js';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {route:"login", user:""};
+    this.state = {route:"login", user:"", id:""};
   }
   handleLogin = (username, password1) =>{
     if(username==="admin" && password1==="admin"){
@@ -20,7 +20,7 @@ class App extends Component {
       Axios.put(constants.LOGIN_URL, body).then(function(response){
           console.log(response);
           if(username===response.data.email){
-            self.setState({route: "trainer", user: response.data.email});
+            self.setState({route: "trainer", user: response.data.email, id:response.data.id});
           }else{
             self.setState({route:"login", user: "Login Error: Wrong username and/or password"});
           }
@@ -52,7 +52,7 @@ class App extends Component {
       return(
         <div className="App">
           <h1>TRAINER APP</h1>
-          <TrainerPage handleLogout={this.handleLogout} user={this.state.user}/>
+          <TrainerPage handleLogout={this.handleLogout} user={this.state.user} id={this.state.id}/>
         </div>
       );
     }

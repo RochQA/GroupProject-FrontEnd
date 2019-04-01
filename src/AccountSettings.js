@@ -14,7 +14,7 @@ import * as constants from './Constants.js';
         let oldPword = this.state.oldPassword;
         let pword1 = this.state.password;
         let pword2 = this.state.password2;
-        let body ={email:this.props.user, oldPassword:oldPword,  password:pword1, confirmPassword:pword2,
+        let body = {id:this.props.id, oldPassword:oldPword,  password:pword1, confirmPassword:pword2,
             trainerFirstName:this.state.fname, trainerLastName:this.state.lname, email:this.state.email};
         Axios.put(constants.UPDATE_ACCOUNT_URL, body).then(function(response){
             console.log(response);
@@ -30,6 +30,7 @@ import * as constants from './Constants.js';
     render(){
         return(
             <div className="passwordSet">
+            <br/>
                 <form onSubmit={this.setPassword}>
                     Old password:
                     <input type="password" name="oldPassword" placeholder="Old password" id="pwordbox0-change" onChange={this.updateState}/><br/>
@@ -43,7 +44,7 @@ import * as constants from './Constants.js';
                     <input type="text" name="lname" placeholder="Last name" id="lnamebox-change" onChange={this.updateState}/><br/>
                     Email: 
                     <input type="email" name="email" placeholder="email" id="emailbox-change" onChange={this.updateState}/><br/>
-                    <input type="submit" id="acc-update-button" value="Change password"/>
+                    <input type="submit" id="acc-update-button" value="Update account details"/>
                 </form>
                 <p>{this.state.message}</p>
             </div>

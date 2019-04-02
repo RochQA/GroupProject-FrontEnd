@@ -8,3 +8,4 @@ export const GET_ALL_TRAINERS = "http://localhost:8080/getAllTrainers";
 export const DELETE_ACCOUNT = "http://localhost:8080/deleteAccount/";
 export const CREATE_PLAN = "http://localhost:8080/createPlan"
 export const GET_ALL_PLANS = "http://localhost:8080/getAllPlans";
+export const DELETE_PLAN = "http://localhost:8080/deletePlan/";

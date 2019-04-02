@@ -7,14 +7,14 @@ import DisplayAccountFunctions from './DisplayAccountFunctions';
 class AccountManager extends Component{
     constructor(props){
         super(props);
-    }
-    render(){
         let self = this;
         Axios.get(constants.GET_ALL_ACCOUNTS).then(function(response){
             self.setState({accounts:response.data, message:""});
         }).catch(function(error){
 
         });
+    }
+    render(){
         try{
         return(
             <div className="accountManager">

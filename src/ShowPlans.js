@@ -5,7 +5,7 @@ import * as constants from './Constants.js';
 
 class ShowPlans extends Component{
     render(){
-        var self = this;
+        let self = this;
         Axios.get(constants.GET_ALL_PLANS).then(function(response){
             self.setState({plans: response.data});
         }).catch(function(error){

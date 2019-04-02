@@ -11,7 +11,7 @@ import * as constants from './Constants.js';
     }
     setPassword =(e)=>{
         e.preventDefault();
-        var self = this;
+        let self = this;
         let oldPword = this.state.oldPassword;
         let pword1 = this.state.password;
         let pword2 = this.state.password2;

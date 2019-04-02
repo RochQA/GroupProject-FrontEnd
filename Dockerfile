@@ -1,10 +1,8 @@
-FROM maven as build
-WORKDIR /build
-COPY pom.xml .
-RUN mvn verify --fail-never
-COPY . .
-RUN mvn clean package
-
-FROM openjdk:8
-COPY --from=build /build/target/FrontEnd-0.0.1-SNAPSHOT.jar FrontEnd.jar
-ENTRYPOINT ["java","-jar","FrontEnd.jar"]
+FROM node:9.6.1
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@1.1.1 -g --silent
+CMD ["npm", "start"]

@@ -7,3 +7,11 @@ Pull from github, add NPM to path, in folder with github code, do these commands
 	npm install axios    
 	npm start  
 	Then go to localhost:3000 in your browser.
+
+## docker container run command
+docker run -it \
+  -v ${PWD}:/usr/src/app \
+  -v /usr/src/app/node_modules \
+  -p 3000:3000 \
+  --rm \
+  gadagack/trainermanagerfrontend:latest

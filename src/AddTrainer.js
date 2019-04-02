@@ -44,23 +44,23 @@ class AddTrainer extends Component{
         return(
             <div className="addTrainer">
             <br/>
+            <div className="container">
             <form onSubmit={this.handleSubmit}>
+                <br/>
+                <br/>
                 <p className="form-font">First name: </p>
-                <input type="text" name="trainerFirstName" placeholder="First name" id="firstnamebox-addtrainer" onChange={this.updateState}/>
-                <br/>
+                <input type="text" name="trainerFirstName" placeholder="First name" id="firstnamebox-addtrainer" onChange={this.updateState}/><br/><br/>
                 <p className="form-font">Last name: </p>
-                <input type="text" name="trainerLastName" placeholder="Last name" id="lastnamebox-addtrainer" onChange={this.updateState} />
-                <br/>
+                <input type="text" name="trainerLastName" placeholder="Last name" id="lastnamebox-addtrainer" onChange={this.updateState} /><br/><br/>
                 <p className="form-font">Email:</p>
-                <input type="email" name="email" placeholder="Email" id="emailbox-addtrainer" onChange={this.updateState} />
+                <input type="email" name="email" placeholder="Email" id="emailbox-addtrainer" onChange={this.updateState} /><br/><br/>
                 <p className="form-font">Password: </p>
-                <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/>
-                <br/>
+                <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState}/><br/><br/>
                 <p className="form-font">Re-type Password: </p>
-                <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress}/>
-                <br/>
+                <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress}/><br/><br/>
                 <input type="submit" id="submit-button-addtrainer" value="Add this trainer"/>
             </form>
+            </div>
             <p>{this.state.message}</p>
             </div>
         );

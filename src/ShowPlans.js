@@ -16,8 +16,8 @@ class ShowPlans extends Component{
             <div className="showPlans">
                 {this.state.plans.map(item =>(
                     <div>
-                    <p>Start date: {item.startDate}</p>
-                    <p>End date: {item.endDate}</p>
+                    <p>Start date: {item.startDate.substring(0,10)}</p>
+                    <p>End date: {item.endDate.substring(0,10)}</p>
                     <p>Trainer: {item.trainerName}</p>
                     <p>Group: {item.traineeGroup}</p>
                     <p>Topic: {item.topic}</p>

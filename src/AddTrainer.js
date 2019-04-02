@@ -19,7 +19,7 @@ class AddTrainer extends Component{
                 self.setState({message: response.data, formDisplay:false});
             }).catch(function(error){
                 console.log(error);
-                self.setState({message: "temp3", formDisplay:false});
+                self.setState({message: "Account creation failed", formDisplay:false});
             });
         }else{
             this.setState({message:"Passwords don't match"})

@@ -8,7 +8,7 @@ import {
   } from "react-router-dom";
 import AccountSettings from './AccountSettings'
 import DisplayUser from './DisplayUser';
-import TrainerCalendar from './TrainerCalendar';
+import ShowPlans from './ShowPlans';
 
 class TrainerPage extends Component{
     render(){
@@ -17,13 +17,13 @@ class TrainerPage extends Component{
                 <DisplayUser user={this.props.user} handleLogout={this.props.handleLogout}/>
                 <HashRouter basename="/user">
                 <ul className="topNavbar">
-                    <li id="calendar-nav"><NavLink to="/calendar">CALENDAR</NavLink></li>
+                    <li id="showPlans-nav"><NavLink to="/showPlans">PLANS</NavLink></li>
                     <li id="settings-nav"><NavLink to="/settings">SETTINGS</NavLink></li>
                 </ul>
                 <div className="content">
                     <Route exact path="/" render={()=><h2>Welcome to the app</h2>}/>
-                    <Route path="/settings" render={()=><AccountSettings user={this.props.user}/>}/>
-                    <Route path="/calendar" render={()=><TrainerCalendar/>}/>
+                    <Route path="/settings" render={()=><AccountSettings user={this.props.user} id={this.props.id}/>}/>
+                    <Route path="/showPlans" render={()=><ShowPlans/>}/>
                 </div>
                 </HashRouter>
             </div>

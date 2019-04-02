@@ -1,16 +1,12 @@
-# base image
-FROM node:9.6.1
+FROM node
+WORKDIR /build
+RUN npm install -g serve
 
-# set working directory
-WORKDIR /home/jenkins/.jenkins/workspace/TrainerManager-FrontEnd/
+ENTRYPOINT ["/usr/local/bin/serve", "-s", "build", "-l" , "3000"]
+EXPOSE 3000
 
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY package.json package.json
+RUN npm install
 
-# install and cache app dependencies
-RUN npm install --silent
-RUN npm install react-scripts@1.1.1 -g --silent
-RUN npm install react-app
-RUN npm install react-calendar
-RUN npm install axios
-CMD ["npm", "start"]
+COPY . .
+RUN npm run build --production

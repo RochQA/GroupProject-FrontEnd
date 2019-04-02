@@ -2,7 +2,7 @@
 FROM node:9.6.1
 
 # set working directory
-WORKDIR /home/jenkins/.jenkins/workspace/'Trainer Manager-FrontEnd'/
+WORKDIR /home/jenkins/.jenkins/workspace/TrainerManager-FrontEnd/
 
 # add `/usr/src/app/node_modules/.bin` to $PATH
 ENV PATH /usr/src/app/node_modules/.bin:$PATH

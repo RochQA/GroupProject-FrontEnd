@@ -5,6 +5,7 @@ import TrainerPage from './TrainerPage';
 import AdminPage from './AdminPage';
 import Axios from 'axios';
 import * as constants from './Constants.js';
+import logo from './QA-Consulting-Logo.jpg';
 
 class App extends Component {
   constructor(props){
@@ -36,15 +37,31 @@ class App extends Component {
     if(this.state.route==="login"){
       return(
           <div className="App">
+          <div className="container">
             <h1>TRAINER APP</h1>
             <LogIn handleLogin={this.handleLogin}/>
             <p>{this.state.user}</p>
+            </div>
           </div>
       );
     }else if(this.state.route==="admin"){
       return(
         <div className="App">
-          <h1>TRAINER APP</h1>
+          <br/>
+          <div className="container">
+            <div className="row">
+              <div className="top">
+              <div className="col-4">
+                <img src={logo} alt="Logo" height="60%" width="60%" />
+              </div>
+              
+              <div className="offset-4 col-4 ">
+                <h1>TRAINER APP</h1>
+              </div>
+              
+            </div>
+            </div>
+          </div>
           <AdminPage handleLogout={this.handleLogout} user={this.state.user}/>
         </div>
       );

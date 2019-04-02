@@ -40,33 +40,47 @@ class CreatePlan extends Component{
             return(
                 <div className="createPlan">
                     <h2>Select start date</h2>
-                    <Calendar onClickDay={this.selectStart}/>
+                    <div className="container">
+                        <div className="row">
+                            <div className="offset-4 col-4">
+                                <Calendar onClickDay={this.selectStart}/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }else if(this.state.stage==="endDate"){
             return(
                 <div className="createPlan">
                     <h2>Select end date</h2>
-                    <Calendar onClickDay={this.selectEnd}/>
-                    <button type="button" onClick={this.goToStart}>Cancel</button>
+                    <div className="container">
+                        <div className="row">
+                            <div className="offset-4 col-4">
+                                <Calendar onClickDay={this.selectEnd}/>
+                                <button type="button" onClick={this.goToStart}>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }else if(this.state.stage==="form"){
             return(
                 <div className="createPlan">
                     <h2>Fill details</h2>
-                    <form onSubmit={this.planCreate}>
-                        Trainer Name:
-                        <input type="text" name="trainerName" placeholder="Trainer Name" id="namebox-create" onChange={this.updateState}/><br/>
-                        Trainee Group:
-                        <input type="text" name="traineeGroup" placeholder="Trainee Group" id="groupbox-create" onChange={this.updateState}/><br/>
-                        Topic:
-                        <input type="text" name="topic" placeholder="Topic" id="topicbox-create" onChange={this.updateState}/><br/>
-                        Room number:
-                        <input type="number" name="roomNumber" placeholder="Room Number" id="numberbox-create" onChange={this.updateState}/><br/>
-                        <input type="submit" value="Create Plan"/>
-                    </form>
-                    <button type="button" onClick={this.goToStart}>Cancel</button>
+                    <div className="container">
+                        <form onSubmit={this.planCreate}>
+                            <p className="form-font">Trainer Name: </p>
+                            <input type="text" name="trainerName" placeholder="Trainer Name" id="namebox-create" onChange={this.updateState} /><br /><br />
+                            <p className="form-font">Trainee Group: </p>
+                            <input type="text" name="traineeGroup" placeholder="Trainee Group" id="groupbox-create" onChange={this.updateState} /><br /><br />
+                            <p className="form-font">Topic: </p>
+                            <input type="text" name="topic" placeholder="Topic" id="topicbox-create" onChange={this.updateState} /><br /><br />
+                            <p className="form-font">Room number: </p>
+                            <input type="number" name="roomNumber" placeholder="Room Number" id="numberbox-create" onChange={this.updateState} /><br /><br />
+                            <input type="submit" value="Create Plan" />
+                            <button type="button" onClick={this.goToStart}>Cancel</button>
+                        </form>
+                    </div>
                 </div>
             );
         }else{

@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
 import * as constants from './Constants.js';
-import DisplayTrainerFunctions from './DisplayTrainerFunctions';
+import DisplayTrainerFunctions from './DisplayAccountFunctions';
 
 class DisplayTrainers extends Component{
     constructor(props){
         super(props);
         var self = this;
-        Axios.get(constants.GET_ALL_ACCOUNTS).then(function(response){
+        Axios.get(constants.GET_ALL_TRAINERS).then(function(response){
             console.log(response);
             self.setState({trainers:response.data});
         }).catch(function(error){
-            self.setState({trainers: "error"});
         });
     }
     render(){
@@ -23,7 +22,6 @@ class DisplayTrainers extends Component{
                     <ul className="displayIndividualTrainer">
                         <p>Email: {item.email}</p>
                         <p>Name: {item.firstName} {item.lastName}</p>
-                        <DisplayTrainerFunctions id={item.id}/>
                     </ul>
                 ))}
             </div>

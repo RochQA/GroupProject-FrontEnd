@@ -6,6 +6,7 @@ import * as constants from './Constants.js';
   class AccountSettings extends Component{
     constructor(props){
         super(props);
+        var self = this;
         this.state = {message:""};
     }
     setPassword =(e)=>{
@@ -26,6 +27,7 @@ import * as constants from './Constants.js';
         const value = e.target.value;
         const name = e.target.name;
         this.setState({[name]: value, message: ""});
+    
     }
     render(){
         return(

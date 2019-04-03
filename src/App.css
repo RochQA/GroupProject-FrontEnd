@@ -34,9 +34,18 @@
 .topNavbar .active{
   background-color:#003C70;
 }
-
-.top {
-  /* display: inline-block; */
+.loginNav{
+  text-decoration: none;
+  color:black;
+}
+.calendarPage{
+  position: fixed;
+  left: 1%;
+  top: 20%;
+}
+.loginNav{
+  text-decoration: none;
+  color:black;
 }
 
 h1 {
@@ -47,10 +56,6 @@ img {
   float: left;
 }
 
-.pack {
-  /* display: inline-block; */
-}
-
 .left-align {
   float: left;
   
@@ -58,13 +63,13 @@ img {
 }
 
 .form-font {
-  float: left;
-  margin-left: 25%;
+  float: left !important;
+  margin-left: 25% !important;
 }
 
-input {
-  float: right;
-  margin-right: 25%;
+input, .cssButton{
+  float: right !important;
+  margin-right: 25% !important;
   
 }
 
@@ -76,7 +81,8 @@ p {
   font-family: Helvetica, sans-serif
 }
 
-Calendar {
+/* Calendar {
   align-items: center;
   align-content: center;
-}
+} */
+

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
 import * as constants from './Constants.js';
-import DisplayTrainerFunctions from './DisplayAccountFunctions';
 
 class DisplayTrainers extends Component{
     constructor(props){

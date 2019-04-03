@@ -1,12 +1,17 @@
-FROM node
-WORKDIR /build
-RUN npm install -g serve
+# base image
+FROM node:9.6.1
 
-ENTRYPOINT ["/usr/local/bin/serve", "-s", "build", "-l" , "3000"]
-EXPOSE 3000
+# set working directory
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
 
-COPY package.json package.json
-RUN npm install
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-COPY . .
-RUN npm run build --production
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@1.1.1 -g --silent
+
+# start app
+CMD ["npm", "start"]

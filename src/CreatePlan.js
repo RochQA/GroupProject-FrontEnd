@@ -41,7 +41,6 @@ class CreatePlan extends Component {
         if (this.state.stage === "startDate") {
             return (
                 <div className="createPlan">
-                    
                     <div className="container">
                     <h2>Select start date</h2>
                     <br/>

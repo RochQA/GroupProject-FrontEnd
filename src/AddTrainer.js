@@ -6,14 +6,21 @@ import * as constants from './Constants.js';
 class AddTrainer extends Component {
     constructor(props) {
         super(props);
-        this.state = { message: "", formDisplay: true };
+        this.state = { message: "", formDisplay: true, accountType:"" };
     }
     handleSubmit = (e) => {
         e.preventDefault();
+        if(this.state.accountType==="true"){
+            this.setState({accountType:true});
+        }else{
+            this.setState({accountType:false});
+        }
         let body = {
             trainerFirstName: this.state.trainerFirstName, trainerLastName: this.state.trainerLastName,
-            confirmPassword: this.state.password, password: this.state.password2, email: this.state.email
+            confirmPassword: this.state.password, password: this.state.password2, email: this.state.email, 
+            admin: this.state.accountType
         };
+        console.log(body);
         var self = this;
         if (this.state.password === this.state.password2) {
             Axios.post(constants.CREATE_ACCOUNT_URL, body).then(function (response) {
@@ -60,6 +67,11 @@ class AddTrainer extends Component {
                             <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState} /><br /><br />
                             <p className="form-font">Re-type Password: </p>
                             <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress} /><br /><br />
+                            <p className="form-font">Account type: </p><br/>
+                            <ul className="radio">
+                                <li><input type="radio" value="false" name="accountType" checked={this.state.accountType==="false"} onChange={this.updateState}/>Trainer</li>
+                                <li><input type="radio" value="true" name="accountType" checked={this.state.accountType==="true"} onChange={this.updateState}/>Admin</li>
+                            </ul>
                             <input type="submit" id="submit-button-addtrainer" value="Add this trainer" />
                         </form>
                     </div>

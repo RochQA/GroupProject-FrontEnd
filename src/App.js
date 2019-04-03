@@ -13,22 +13,22 @@ class App extends Component {
     this.state = { route: "login", user: "", id: "" };
   }
   handleLogin = (username, password1) => {
-    if (username === "admin" && password1 === "admin") {
-      this.setState({ route: "admin", user: username });
-    } else {
       let body = { email: username, password: password1 };
       let self = this;
       Axios.put(constants.LOGIN_URL, body).then(function (response) {
         console.log(response);
         if (username === response.data.email) {
-          self.setState({ route: "trainer", user: response.data.email, id: response.data.id });
+          if(response.data.admin===true){
+            self.setState({ route:"admin", user: response.data.email, id: response.data.id});
+          }else{
+            self.setState({ route: "trainer", user: response.data.email, id: response.data.id });
+          }
         } else {
           self.setState({ route: "login", user: "Login Error: Wrong username and/or password" });
         }
       }).catch(function (error) {
         self.setState({ route: "login", user: "Login Error: Unfilled fields" });
       });
-    }
   }
   handleLogout = () => {
     this.setState({ route: "login", user: "", message: "" });

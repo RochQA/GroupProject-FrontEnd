@@ -34,6 +34,9 @@
 .topNavbar .active{
   background-color:#003C70;
 }
+.radio{
+  list-style-type: none; 
+}
 .loginNav{
   text-decoration: none;
   color:black;
@@ -81,8 +84,8 @@ p {
   font-family: Helvetica, sans-serif
 }
 
-/* Calendar {
+Calendar {
   align-items: center;
   align-content: center;
-} */
+} 
 

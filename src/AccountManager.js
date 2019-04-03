@@ -9,6 +9,7 @@ class AccountManager extends Component{
         super(props);
         let self = this;
         Axios.get(constants.GET_ALL_ACCOUNTS).then(function(response){
+            console.log(response);
             self.setState({accounts:response.data, message:""});
         }).catch(function(error){
 

@@ -2,11 +2,13 @@
   text-align: center;
   
 }
+
 .userDisplay{
   position: fixed;
-  top: 0%;
+  top: 9%;
   right: 5%;
 }
+
 .topNavbar {
   list-style-type: none;
   margin: 0;
@@ -32,6 +34,33 @@
   background-color: rgba(75,75,144, 0.5);
 }
 .topNavbar .active{
+  background-color:#003C70;
+}
+.topNavbar-trainer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #2A9AE8;
+  opacity: 150;
+  overflow: hidden;
+}
+.topNavbar-trainer li{
+  float: left;
+  width:50%;
+}
+.topNavbar-trainer li a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-weight: bolder;
+}
+.topNavbar-trainer li a:hover{
+  background-color: rgba(75,75,144, 0.5);
+}
+.topNavbar-trainer .active{
   background-color:#003C70;
 }
 .radio{
@@ -71,9 +100,14 @@ img {
 }
 
 input, .cssButton{
-  float: right !important;
+  float: right;
   margin-right: 25% !important;
   
+}
+
+.noCSS{
+  /* float: none; */
+  margin-right: 26% !important;
 }
 
 .container {
@@ -89,3 +123,33 @@ Calendar {
   align-content: center;
 } 
 
+li {
+  list-style: none;
+}
+
+.cssBorder {
+  border-style: solid;
+  color: white;
+  border-color: black;
+  font-weight: bolder;
+}
+
+.planSheet {
+  background-color:  #2A9AE8;
+}
+
+#noColour {
+  background-color: white;
+}
+
+.Login {
+  margin-top: 15% !important;
+}
+
+.noFloat {
+  float: none;
+}
+
+div displayIndividualTrainer{
+  width: 50%;
+}

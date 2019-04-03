@@ -37,24 +37,13 @@ class App extends Component {
     if (this.state.route === "login") {
       return (
         <div className="App">
-          {/* <div className="container">
-            <div className="row">
-              <div className="offset-4 col-4"> */}
+              <div className="container Login">
                 <h1>TRAINER APP</h1>
-              {/* </div>
-            </div>
-            <div className="row">
-              <div className="offset-4 col-4">
-              <br/> */}
+
                 <LogIn handleLogin={this.handleLogin} />
-              {/* </div>
-            </div>
-            <div className="row">
-              <div className="offset-4 col-4"> */}
+
                 <p>{this.state.user}</p>
-              {/* </div>
-            </div> */}
-          {/* </div> */}
+              </div>
         </div>
       );
     } else if (this.state.route === "admin") {
@@ -65,10 +54,10 @@ class App extends Component {
             <div className="row">
               <div className="top">
                 <div className="col-4">
-                  <img src={logo} alt="Logo" height="60%" width="60%" />
+                  <img src={logo} alt="Logo" height="65%" width="65%" />
                 </div>
 
-                <div className="offset-4 col-4 ">
+                <div className="offset-4 col-4">
                   <h1>TRAINER APP</h1>
                 </div>
 
@@ -81,8 +70,21 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <h1>TRAINER APP</h1>
-          <TrainerPage handleLogout={this.handleLogout} user={this.state.user} id={this.state.id} />
+        <br/>
+          <div className="container">
+            <div className="row">
+              <div className="top">
+                <div className="col-4">
+                  <img src={logo} alt="Logo" height="65%" width="65%" />
+                </div>
+                <div className="offset-4 col-4">
+                  <h1>TRAINER APP</h1>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            
+            <TrainerPage handleLogout={this.handleLogout} user={this.state.user} id={this.state.id} />
         </div>
       );
     }

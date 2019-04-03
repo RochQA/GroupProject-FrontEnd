@@ -10,6 +10,7 @@ class ShowPlansFunction extends Component{
     deletePlan =()=>{
         let self = this;
         Axios.delete(constants.DELETE_PLAN + this.props.id).then(function(response){
+            self.props.deleteHandler();
         }).catch(function(error){
 
         });
@@ -17,7 +18,7 @@ class ShowPlansFunction extends Component{
     render(){
         return(
             <div>
-                <button type="button" onClick={this.deletePlan}>Delete plan</button>
+                <button id="noColour" type="button" onClick={this.deletePlan}>Delete plan</button>
             </div>
         );
     }

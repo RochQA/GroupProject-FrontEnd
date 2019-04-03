@@ -9,8 +9,10 @@ class DisplayAccountFunctions extends Component{
     }
     deleteTrainer =()=>{
         var self = this;
+
         Axios.delete(constants.DELETE_ACCOUNT + this.props.id).then(function(response){
             console.log(response);
+            self.props.generateMessage();
         }).catch(function(error){
         })
     }

@@ -42,7 +42,7 @@ class CreatePlan extends Component {
             return (
                 <div className="createPlan">
                     <div className="container">
-                    <h2>Select start date</h2>
+                    <h2>Select Start Date</h2>
                     <br/>
                         <div className="row">
                             <div className="offset-4 col-4">
@@ -56,7 +56,7 @@ class CreatePlan extends Component {
             return (
                 <div className="createPlan">    
                     <div className="container">
-                    <h2>Select end date</h2>
+                    <h2>Select End Date</h2>
                     <br/>
                         <div className="row">
                             <div className="offset-4 col-4">
@@ -92,7 +92,7 @@ class CreatePlan extends Component {
             return (
                 <div className="createPlan">
                     <h2>{this.state.message}</h2>
-                    <button type="button" onClick={this.goToStart}>Make another plan</button>
+                    <button type="button" onClick={this.goToStart}>Make Another Plan</button>
                 </div>
             );
         }

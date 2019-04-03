@@ -6,7 +6,7 @@ import * as constants from './Constants.js';
 class AddTrainer extends Component {
     constructor(props) {
         super(props);
-        this.state = { message: "", formDisplay: true, accountType:"" };
+        this.state = { message: "", formDisplay: true, accountType:"false" };
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +25,8 @@ class AddTrainer extends Component {
         if (this.state.password === this.state.password2) {
             Axios.post(constants.CREATE_ACCOUNT_URL, body).then(function (response) {
                 console.log(response);
-                self.setState({ message: response.data, formDisplay: false });
+                self.setState({ message: response.data, formDisplay: false, trainerFirstName:"", trainerLastName:"",
+                confirmPassword:"", password: "", email: "", admin: "false" });
             }).catch(function (error) {
                 console.log(error);
                 self.setState({ message: "Account creation failed", formDisplay: false });
@@ -44,6 +45,13 @@ class AddTrainer extends Component {
         const value = e.target.value;
         const name = e.target.name;
         this.setState({ [name]: value, message: "", formDisplay: true });
+    }
+    handleChecking=()=>{
+        if(this.state.accountType==="true"){
+            this.setState({accountType: "false"});
+        }else{
+            this.setState({accountType:"true"});
+        }
     }
     dispForm = () => {
         this.setState({ message: "", formDisplay: true })
@@ -67,12 +75,14 @@ class AddTrainer extends Component {
                             <input type="password" name="password" placeholder="password1" id="passwordbox-addtrainer" onChange={this.updateState} /><br /><br />
                             <p className="form-font">Re-type Password: </p>
                             <input type="password" name="password2" placeholder="password2" id="passwordbox2-addtrainer" onChange={this.updateState} onKeyPress={this.enterPress} /><br /><br />
-                            <p className="form-font">Account type: </p><br/>
-                            <ul className="radio">
-                                <li><input type="radio" value="false" name="accountType" checked={this.state.accountType==="false"} onChange={this.updateState}/>Trainer</li>
-                                <li><input type="radio" value="true" name="accountType" checked={this.state.accountType==="true"} onChange={this.updateState}/>Admin</li>
-                            </ul>
-                            <input type="submit" id="submit-button-addtrainer" value="Add this trainer" />
+                            
+                            <p className="form-font">Admin </p>
+                            <ul className="checkbox">
+                                <li><input className="noCSS" type="checkbox" value="Admin" name="accountType" onChange={this.handleChecking}/></li>
+                            </ul> 
+                            <br/>
+                            <br/>
+                            <input  type="submit" id="submit-button-addtrainer" value="Add this trainer" />
                         </form>
                     </div>
                     <p>{this.state.message}</p>

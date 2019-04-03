@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import './TrainerPage.css'
 import {
     Route,
     NavLink,
@@ -16,7 +15,7 @@ class TrainerPage extends Component{
             <div className="trainerPage">
                 <DisplayUser user={this.props.user} handleLogout={this.props.handleLogout}/>
                 <HashRouter basename="/user">
-                <ul className="topNavbar">
+                <ul className="topNavbar-trainer">
                     <li id="showPlans-nav"><NavLink to="/showPlans">PLANS</NavLink></li>
                     <li id="settings-nav"><NavLink to="/settings">SETTINGS</NavLink></li>
                 </ul>
